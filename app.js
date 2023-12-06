@@ -82,9 +82,6 @@ Vue.createApp({
         return (this.chargeSpecialAttack = false);
       }
 
-
-
-      
     },
 
 
@@ -125,7 +122,9 @@ Vue.createApp({
         this.chargeSpecialAttack = true
       }
       //Changer la couleur de la barre de vie
-      if (value<=100 && value>=50) {
+      if (value>100 && value<200) {
+        this.lifeBarPerso = 'green'
+      } else if (value<=100 && value>=50) {
         this.lifeBarPerso = 'orange'
       } else if (value<50 && value>=0) {
         this.lifeBarPerso = 'red'
@@ -145,7 +144,9 @@ Vue.createApp({
         this.nbrPartie++;
       }
       //Changer la couleur de la barre de vie
-      if (value<=100 && value>=50) {
+      if (value>100 && value<200) {
+        this.lifeBarPerso = 'green'
+      } else if (value<=100 && value>=50) {
         this.lifeBarAdversaire = 'orange'
       } else if (value<50 && value>=0) {
         this.lifeBarAdversaire = 'red'
