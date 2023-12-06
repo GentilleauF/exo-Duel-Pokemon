@@ -23,19 +23,19 @@
         </div>
         <p>Round: {{counterRound}} </p>
         <div class="personnage1">
-            <img src="" alt="img Perso 1">
+            <img src="./player.png" width="110" height="120" alt="img Perso 1">
             <div :style="{height: '20px', width: viePlayer+'px', backgroundColor:'chartreuse', margin: '0 auto'}" ></div>        </div>
             <p>Mes points de vie: {{viePlayer}} </p>
             <br><br>
         <div class="personnage2">
-            <img src="" alt="img Perso 1">
+            <img src="./ennemi.png" width="110" height="120"alt="img Perso 1">
             <div :style="{height: '20px', width: vieAdversaire+'px', backgroundColor:'red', margin: '0 auto'}" ></div>
             <p>{{vieAdversaire}} PDV </p>
         </div>
         <div class="d-flex justify-content-center align-items-center">
             <button @click="attackDuPlayer" class="btn btn-primary" :disabled="endGame">Attaquer</button>
             <button @click="gainLife" class="btn btn-primary" :disabled="endGame">Se Soigner</button>
-            <button :disabled="chargeSpecialAttack"  @click="attackSpecial" class="btn btn-primary" :disabled="endGame"  >Attaque spéciale</button>
+            <button  @click="attackSpecial" :disabled="chargeSpecialAttack"  class="btn btn-primary" :disabled="endGame"  >Attaque spéciale</button>
             <button @click="giveUp" :disabled="endGame" class="btn btn-primary">Abandonner</button>
         </div>
         <br><br><br>

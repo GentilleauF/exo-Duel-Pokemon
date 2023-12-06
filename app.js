@@ -68,6 +68,8 @@ Vue.createApp({
     }
   },
 
+
+
   watch: {
     // FIN DE PARIE si viePlayer ==0
     viePlayer(value){
@@ -75,25 +77,21 @@ Vue.createApp({
         this.gameOver = "GAME OVER!!! Vous avez perdu en" + this.counterRound + ' tours';
         this.endGame = true;
         this.myLoose++;
-        this.nbrPartie++
+        this.nbrPartie++;
       }
     },
 
     // FIN DE PARIE si vieAdversaire ==0
     vieAdversaire(value){
       if(value<=0){
+        this.vieAdversaire = 0;
         this.gameOver = 'Vous avez gagné en' + this.counterRound + ' tours';
         this.endGame = true;
         this.myWin++;
-        this.nbrPartie++
-
-
+        this.nbrPartie++;
       }
     }
   }
 }).mount("#app");
-
-
-
 
 
