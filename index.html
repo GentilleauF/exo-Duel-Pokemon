@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
     </head>
 
 <body id="app">
@@ -22,25 +23,35 @@
             <p class="col-4"> Nbr de parite jouée: {{nbrPartie}} </p>
         </div>
         <p>Round: {{counterRound}} </p>
-        <div class="personnage1">
+
+        <div class="personnage1 border">
             <img src="./player.png" width="110" height="120" alt="img Perso 1">
-            <div :style="{height: '20px', width: viePlayer+'px', backgroundColor:'chartreuse', margin: '0 auto'}" ></div>        </div>
-            <p>Mes points de vie: {{viePlayer}} </p>
-            <br><br>
-        <div class="personnage2">
-            <img src="./ennemi.png" width="110" height="120"alt="img Perso 1">
-            <div :style="{height: '20px', width: vieAdversaire+'px', backgroundColor:'red', margin: '0 auto'}" ></div>
-            <p>{{vieAdversaire}} PDV </p>
+            <div :style="{height: '20px', width: viePlayer+'px', backgroundColor:lifeBarPerso, margin: '0 auto'}" ></div>    
+           <p>Mes points de vie: {{viePlayer}} PDV </p>
         </div>
+            
+            <br><br>
+        <div class="personnage2 border">
+            <img src="./ennemi.png" width="110" height="120"alt="img Perso 1">
+            <div :style="{height: '20px', width: vieAdversaire+'px', backgroundColor:lifeBarAdversaire, margin: '0 auto'}" ></div>
+            <p>Points de vie de l'adversaire: {{vieAdversaire}} PDV</p>
+        </div>
+        <br>
         <div class="d-flex justify-content-center align-items-center">
-            <button @click="attackDuPlayer" class="btn btn-primary" :disabled="endGame">Attaquer</button>
-            <button @click="gainLife" class="btn btn-primary" :disabled="endGame">Se Soigner</button>
-            <button  @click="attackSpecial" :disabled="chargeSpecialAttack"  class="btn btn-primary" :disabled="endGame"  >Attaque spéciale</button>
+            <button @click="attackDuPlayer" class="btn btn-danger" :disabled="endGame">Attaquer</button>
+            <button @click="gainLife" class="btn btn-success" :disabled="endGame">Se Soigner</button>
+            <button @click="attackSpecial" :disabled="chargeSpecialAttack"  class="btn btn-warning" :disabled="endGame"  >Attaque spéciale</button>
             <button @click="giveUp" :disabled="endGame" class="btn btn-primary">Abandonner</button>
         </div>
-        <br><br><br>
-        <p> {{gameOver}} </p>
+        <br><br>
+        
+        <h2> {{gameOver}} </h2>
         <button class="btn btn-primary" :disabled="!endGame" @click="nouvellePartie">Relancer une nouvelle partie</button>
+        <div v-for="attackStats in statGame">
+            <ul>
+                <li>{{attackStats}}</li>
+            </ul>
+        </div>
     </div>
     
 
